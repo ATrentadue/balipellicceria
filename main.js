@@ -66,4 +66,39 @@
   } else {
     reveal.forEach(function (el) { el.classList.add('is-visibile'); });
   }
+
+  // ---------- video dell'hero ----------
+  var video = document.getElementById('hero-video');
+  var pausa = document.getElementById('hero-pausa');
+  var fermatoDaUtente = false;
+  function imposta(inPausa) {
+    pausa.setAttribute('aria-pressed', inPausa);
+    pausa.setAttribute('aria-label', inPausa ? 'Riproduci il video' : 'Metti in pausa il video');
+  }
+  function riproduci() {
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { imposta(true); });
+  }
+  if (video && pausa) {
+    // chi preferisce meno movimento vede il fotogramma fermo
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.removeAttribute('autoplay');
+      video.pause();
+      fermatoDaUtente = true;
+      imposta(true);
+    }
+    pausa.addEventListener('click', function () {
+      fermatoDaUtente = !video.paused;
+      if (video.paused) riproduci(); else video.pause();
+      imposta(fermatoDaUtente);
+    });
+    video.addEventListener('play', function () { imposta(false); });
+    // fuori schermo il video si ferma, e riparte al ritorno se non l'ha fermato l'utente
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (voci) {
+        if (fermatoDaUtente) return;
+        if (voci[0].isIntersecting) riproduci(); else video.pause();
+      }).observe(video);
+    }
+  }
 })();
