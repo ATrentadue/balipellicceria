@@ -1,0 +1,27 @@
+# Netlify: pubblica solo i file del sito (non _originali, _versione-1-scura, server-locale.js)
+[build]
+  publish = "dist"
+  command = "rm -rf dist && mkdir dist && cp -r index.html style.css main.js fonts img video dist/"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# i font non cambiano mai nome: cache lunga
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# foto e video possono essere sostituiti con lo stesso nome: cache di una settimana
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
