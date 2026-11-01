@@ -203,7 +203,6 @@ p { margin: 0; }
 .numeri dd { margin: 8px 0 0; color: var(--ink-2); font-size: 15px; }
 
 /* ---------- collezioni (sui social) ---------- */
-.collezioni { border-top: 1px solid var(--linea); }
 .intestazione__titolo { display: grid; gap: 16px; justify-items: start; }
 .canali { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .canale { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 0 16px; }
@@ -259,6 +258,7 @@ p { margin: 0; }
 .servizio p { color: var(--ink-2); }
 
 /* ---------- negozi ---------- */
+.negozi { border-top: 1px solid var(--linea); }
 .negozi__inner { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; }
 .negozi__foto { overflow: hidden; border-radius: var(--raggio); min-height: 360px; }
 .negozi__foto img { width: 100%; height: 100%; object-fit: cover; }
