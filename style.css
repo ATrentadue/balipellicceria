@@ -98,13 +98,6 @@ p { margin: 0; }
 .btn--piccolo { min-height: 42px; padding: 0 20px; font-size: 14px; }
 .btn--contorno { background: transparent; color: var(--ink); border-color: var(--linea); }
 .btn--contorno:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
-.btn--chiaro { background: #fff; border-color: #fff; color: var(--ink); }
-.btn--chiaro:hover { background: var(--bg-2); border-color: var(--bg-2); color: var(--ink); }
-.btn--vetro {
-  background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .55); color: #fff;
-  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-}
-.btn--vetro:hover { background: #fff; border-color: #fff; color: var(--ink); }
 
 /* ---------- header ---------- */
 .header {
@@ -169,7 +162,6 @@ p { margin: 0; }
   padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, .3);
 }
 .hero__sotto { max-width: 44ch; color: rgba(255, 255, 255, .86); }
-.hero__azioni { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* entrata */
 .js .hero__sfondo img { transform: scale(1.08); }
@@ -276,7 +268,7 @@ p { margin: 0; }
 
 /* ---------- footer ---------- */
 .footer { background: var(--scuro); color: rgba(244, 241, 236, .62); padding: clamp(64px, 8vw, 112px) 0 96px; font-size: 14px; }
-.footer__alto { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.footer__alto { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
 .footer__marchio img { height: 34px; width: auto; }
 .footer__marchio p { max-width: 32ch; margin-top: 20px; }
 .footer__col h3 { margin-bottom: 14px; font-size: 14px; color: #f4f1ec; }
@@ -312,6 +304,7 @@ p { margin: 0; }
   .negozi__inner { grid-template-columns: 1fr 1fr; }
   .negozi__foto { grid-column: 1 / -1; min-height: 0; aspect-ratio: 16 / 9; }
   .footer__alto { grid-template-columns: 1fr 1fr; }
+  .footer__marchio { grid-column: 1 / -1; }
 }
 
 /* ---------- menu mobile ---------- */
@@ -347,7 +340,6 @@ p { margin: 0; }
   .header__logo img { height: 26px; }
 
   .hero__piede { flex-direction: column; align-items: stretch; }
-  .hero__azioni .btn { flex: 1 1 auto; }
 
   .manifesto__inner { display: block; }
   .manifesto__inner > .etichetta { margin-bottom: 24px; padding: 0; }
