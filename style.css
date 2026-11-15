@@ -259,14 +259,14 @@ p { margin: 0; }
 
 /* ---------- negozi ---------- */
 .negozi { border-top: 1px solid var(--linea); }
-.negozi__inner { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; }
-.negozi__foto { overflow: hidden; border-radius: var(--raggio); min-height: 360px; }
-.negozi__foto img { width: 100%; height: 100%; object-fit: cover; }
+.negozi__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .negozio {
   display: flex; flex-direction: column;
-  padding: clamp(24px, 3vw, 40px);
-  background: var(--bg-2); border-radius: var(--raggio);
+  background: var(--bg-2); border-radius: var(--raggio); overflow: hidden;
 }
+.negozio__foto { aspect-ratio: 16 / 9; overflow: hidden; }
+.negozio__foto img { width: 100%; height: 100%; object-fit: cover; }
+.negozio__testo { flex: 1; display: flex; flex-direction: column; padding: clamp(24px, 3vw, 40px); }
 .negozio__provincia { font-size: 13px; font-weight: 500; color: var(--ink-2); }
 .negozio__citta { margin-top: 6px; font-size: clamp(1.75rem, 1rem + 1.6vw, 2.5rem); font-stretch: 92%; letter-spacing: -.035em; line-height: 1.05; }
 .negozio address { display: grid; gap: 10px; margin: 24px 0 40px; font-style: normal; color: var(--ink-2); }
@@ -309,8 +309,6 @@ p { margin: 0; }
 
 /* ---------- tablet ---------- */
 @media (max-width: 1100px) {
-  .negozi__inner { grid-template-columns: 1fr 1fr; }
-  .negozi__foto { grid-column: 1 / -1; min-height: 0; aspect-ratio: 16 / 9; }
   .footer__alto { grid-template-columns: 1fr 1fr; }
   .footer__marchio { grid-column: 1 / -1; }
 }
